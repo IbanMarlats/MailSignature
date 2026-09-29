@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MailSignature — Générateur de Signature E-mail Pro</title>
+    <meta name="description" content="Créez et personnalisez votre signature e-mail professionnelle. Compatible Gmail, Outlook, Apple Mail. 11 modèles.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;700&family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <div class="logo-text">
+                    <h1>MailSignature</h1>
+                    <span class="badge-tag">11 Modèles</span>
+                </div>
+            </div>
+
+            <!-- PERMANENT TOP COLOR & STYLE BAR -->
+            <div class="top-color-toolbar">
+                <div class="toolbar-item">
+                    <label>Palettes :</label>
+                    <div class="palette-presets-bar">
+                        <button type="button" class="palette-btn" title="Noir & Blanc Minimal" data-primary="#0f172a" data-secondary="#64748b">
+                            <div class="color-half" style="background:#0f172a;"></div>
+                            <div class="color-half" style="background:#64748b;"></div>
+                        </button>
+                        <button type="button" class="palette-btn" title="Sauge & Menthe (Pastel Vert)" data-primary="#4a7c59" data-secondary="#88b04b">
+                            <div class="color-half" style="background:#4a7c59;"></div>
+                            <div class="color-half" style="background:#88b04b;"></div>
+                        </button>
+                        <button type="button" class="palette-btn" title="Terracotta & Sable (Pastel Chaud)" data-primary="#c05c46" data-secondary="#e07a5f">
+                            <div class="color-half" style="background:#c05c46;"></div>
+                            <div class="color-half" style="background:#e07a5f;"></div>
+                        </button>
+                        <button type="button" class="palette-btn" title="Lavande & Lilas (Pastel Doux)" data-primary="#6b5b95" data-secondary="#92a8d1">
+                            <div class="color-half" style="background:#6b5b95;"></div>
+                            <div class="color-half" style="background:#92a8d1;"></div>
+                        </button>
+                        <button type="button" class="palette-btn" title="Bleu Nuit & Or Cognac" data-primary="#1e293b" data-secondary="#c59b27">
+                            <div class="color-half" style="background:#1e293b;"></div>
+                            <div class="color-half" style="background:#c59b27;"></div>
+                        </button>
+                        <button type="button" class="palette-btn" title="Rose Poudré & Pêche" data-primary="#b565a7" data-secondary="#f7cad0">
+                            <div class="color-half" style="background:#b565a7;"></div>
+                            <div class="color-half" style="background:#f7cad0;"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="toolbar-item">
+                    <label for="primaryColor">Principale :</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="primaryColor" value="#0f172a">
+                        <input type="text" id="primaryColorText" value="#0f172a" class="color-hex">
+                    </div>
+                </div>
+
+                <div class="toolbar-item">
+                    <label for="secondaryColor">Secondaire :</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="secondaryColor" value="#c59b27">
+                        <input type="text" id="secondaryColorText" value="#c59b27" class="color-hex">
+                    </div>
+                </div>
+
+                <div class="toolbar-item">
+                    <label for="fontFamily">Police :</label>
+                    <select id="fontFamily" class="toolbar-select">
+                        <option value="'Inter', 'Segoe UI', sans-serif" style="font-family: 'Inter', sans-serif;" selected>Inter (Moderne & Épuré)</option>
+                        <option value="Arial, Helvetica, sans-serif" style="font-family: Arial, sans-serif;">Arial (Classique Universel)</option>
+                        <option value="'Helvetica Neue', Helvetica, sans-serif" style="font-family: 'Helvetica Neue', Helvetica, sans-serif;">Helvetica Pro</option>
+                        <option value="'Roboto', sans-serif" style="font-family: 'Roboto', sans-serif;">Roboto (Clean Tech)</option>
+                        <option value="'Outfit', sans-serif" style="font-family: 'Outfit', sans-serif;">Outfit (Géométrique Modern)</option>
+                        <option value="'Montserrat', sans-serif" style="font-family: 'Montserrat', sans-serif;">Montserrat (Bold Studio)</option>
+                        <option value="'Poppins', sans-serif" style="font-family: 'Poppins', sans-serif;">Poppins (Arrondi Trendy)</option>
+                        <option value="'Open Sans', sans-serif" style="font-family: 'Open Sans', sans-serif;">Open Sans (Lisibilité Pro)</option>
+                        <option value="'Lato', sans-serif" style="font-family: 'Lato', sans-serif;">Lato (Harmonieux)</option>
+                        <option value="Georgia, serif" style="font-family: Georgia, serif;">Georgia (Serif Classique)</option>
+                        <option value="'Playfair Display', Georgia, serif" style="font-family: 'Playfair Display', serif;">Playfair Display (Serif Luxe)</option>
+                        <option value="'Merriweather', Georgia, serif" style="font-family: 'Merriweather', serif;">Merriweather (Serif Édition)</option>
+                        <option value="'Trebuchet MS', sans-serif" style="font-family: 'Trebuchet MS', sans-serif;">Trebuchet MS (Humaniste)</option>
+                        <option value="'Fira Code', 'Courier New', monospace" style="font-family: 'Fira Code', monospace;">Fira Code (Monospace Tech)</option>
+                    </select>
+                </div>
+
+                <div class="toolbar-item">
+                    <button type="button" id="btn-apply-colors" class="btn btn-primary btn-small">
+                        Appliquer
+                    </button>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button type="button" id="btn-reset" class="btn btn-outline">
+                    Réinitialiser
+                </button>
+            </div>
+        </header>
+
+        <!-- STEP 1: MODEL SELECTION SHOWCASE VIEW -->
+        <section id="step-selection-view" class="step-view active">
+            <div class="step-banner">
+                <h2>1. Choisissez votre modèle de signature</h2>
+                <p>Testez les couleurs en direct ci-dessus. Tout est entièrement personnalisable (textes, photos, logos, liens, réseaux sociaux) en cliquant sur <strong>Suivant</strong>.</p>
+            </div>
+
+            <!-- Model Carousel / Showcase -->
+            <div class="template-showcase-container">
+                <button type="button" id="btn-prev-template" class="nav-arrow-btn">‹</button>
+                
+                <div class="showcase-card">
+                    <div class="showcase-header">
+                        <span id="showcase-template-number" class="showcase-number">Modèle 1 / 11</span>
+                        <h3 id="showcase-template-name">1. Studio Sur-Mesure</h3>
+                        <span id="showcase-template-desc" class="showcase-tag">Entièrement personnalisable : forme du cadre, position du visuel, séparateurs</span>
+                    </div>
+
+                    <div class="showcase-preview-box">
+                        <div class="email-mockup-wrapper">
+                            <div class="email-header-bar">
+                                <span class="mockup-title">Aperçu de la signature</span>
+                            </div>
+                            <div class="email-body-area">
+                                <div id="showcase-live-preview">
+                                    <!-- Rendered Template Output -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" id="btn-next-template" class="nav-arrow-btn">›</button>
+            </div>
+
+            <!-- Thumbnails Selector Bar -->
+            <div class="thumbnails-bar" id="template-selector-thumbnails">
+                <button type="button" class="thumb-btn active" data-template="studio">1. Sur-Mesure</button>
+                <button type="button" class="thumb-btn" data-template="modern">2. Corporate</button>
+                <button type="button" class="thumb-btn" data-template="sleek">3. Capsule</button>
+                <button type="button" class="thumb-btn" data-template="freelance">4. Encadré CTA</button>
+                <button type="button" class="thumb-btn" data-template="executive">5. Exécutif</button>
+                <button type="button" class="thumb-btn" data-template="compact">6. Compact</button>
+                <button type="button" class="thumb-btn" data-template="dualbrand">7. Double Visuel</button>
+                <button type="button" class="thumb-btn" data-template="banner">8. Bannière</button>
+                <button type="button" class="thumb-btn" data-template="agencysales">9. Commercial</button>
+                <button type="button" class="thumb-btn" data-template="ecogreen">10. Éco-Green</button>
+                <button type="button" class="thumb-btn" data-template="classic">11. Classique</button>
+            </div>
+
+            <!-- Action Button: Goto Step 2 & Direct Copy -->
+            <div class="step-footer-actions" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <button type="button" id="btn-copy-direct-showcase" class="btn btn-primary btn-xl" style="background: #10b981;">
+                    Copier la Signature (1 Clic)
+                </button>
+                <button type="button" id="btn-goto-customization" class="btn btn-secondary btn-xl">
+                    Personnaliser mes textes & coordonnées →
+                </button>
+            </div>
+        </section>
+
+        <!-- STEP 2: MODAL POPUP FOR CUSTOMIZATION -->
+        <div id="customization-modal" class="modal-backdrop hidden">
+            <div class="modal-window">
+                <div class="modal-header">
+                    <div class="modal-header-left">
+                        <button type="button" id="btn-back-to-models" class="btn btn-outline btn-back">
+                            ← Retour aux modèles
+                        </button>
+                        <div class="modal-header-titles">
+                            <h2>2. Personnalisez vos informations</h2>
+                            <p>Modifiez vos coordonnées, le rendu se met à jour instantanément.</p>
+                        </div>
+                    </div>
+                    <button type="button" id="btn-close-modal" class="modal-close-btn" title="Fermer la personnalisation">&times;</button>
+                </div>
+
+                <div class="modal-body-grid">
+                    <!-- LEFT COLUMN: Form Sections -->
+                    <div class="modal-form-side">
+                        <form id="signature-form" onsubmit="event.preventDefault();">
+                            <!-- Section 0: Options Studio Sur-Mesure -->
+                            <details open class="form-accordion" id="studio-options-accordion">
+                                <summary class="accordion-header">🎨 Options Modèle Sur-Mesure</summary>
+                                <div class="accordion-body form-grid-2">
+                                    <div class="input-group">
+                                        <label for="customFrameStyle">Style du Cadre / Structure</label>
+                                        <select id="customFrameStyle" class="toolbar-select">
+                                            <option value="card">Carte douce avec bordure fine</option>
+                                            <option value="left-accent">Liseré d'accent vertical à gauche</option>
+                                            <option value="header-fill">En-tête plein bicolore</option>
+                                            <option value="pill">Capsule pilule arrondie</option>
+                                            <option value="minimal">Épuré sans bordure</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="customLayoutPos">Position du Visuel (Photo / Logo)</label>
+                                        <select id="customLayoutPos" class="toolbar-select">
+                                            <option value="left">Visuel à gauche</option>
+                                            <option value="top">Visuel en haut (Centré)</option>
+                                            <option value="right">Visuel à droite</option>
+                                            <option value="none">Sans visuel (Texte seul)</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="customMediaChoice">Visuels à Afficher</label>
+                                        <select id="customMediaChoice" class="toolbar-select">
+                                            <option value="both">Photo + Logo (Dual Branding)</option>
+                                            <option value="avatar">Photo de profil uniquement</option>
+                                            <option value="logo">Logo d'entreprise uniquement</option>
+                                            <option value="none">Masquer les visuels</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="customSeparator">Séparateur de coordonnées</label>
+                                        <select id="customSeparator" class="toolbar-select">
+                                            <option value="dot">• Point médian</option>
+                                            <option value="bar">| Barre verticale</option>
+                                            <option value="dash">- Dash / Tiret</option>
+                                            <option value="newline">↵ Retour à la ligne</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <!-- Section 1: Identité & Poste -->
+                            <details open class="form-accordion">
+                                <summary class="accordion-header">Identité & Entreprise</summary>
+                                <div class="accordion-body form-grid-2">
+                                    <div class="input-group">
+                                        <label for="fullName">Prénom et Nom *</label>
+                                        <input type="text" id="fullName" placeholder="ex: Jean Dupont" value="Prénom Nom" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="jobTitle">Intitulé du poste</label>
+                                        <input type="text" id="jobTitle" placeholder="ex: Manager" value="Intitulé du poste">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="company">Nom de l'entreprise</label>
+                                        <input type="text" id="company" placeholder="ex: Nom Entreprise" value="Nom de l'entreprise">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="department">Département</label>
+                                        <input type="text" id="department" placeholder="ex: Équipe Commerciale" value="Département / Équipe">
+                                    </div>
+                                    <div class="input-group col-span-2">
+                                        <label for="tagline">Slogan / Titre de l'encadré</label>
+                                        <input type="text" id="tagline" placeholder="ex: Prise de rendez-vous" value="Prise de rendez-vous">
+                                    </div>
+                                </div>
+                            </details>
+
+                            <!-- Section 2: Photos & Visuels -->
+                            <details open class="form-accordion">
+                                <summary class="accordion-header">Photos & Logos</summary>
+                                <div class="accordion-body form-grid-2">
+                                    <div class="input-group col-span-2">
+                                        <label for="avatarUrl">Photo de profil (URL)</label>
+                                        <div class="file-url-input">
+                                            <input type="url" id="avatarUrl" placeholder="https://..." value="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80">
+                                            <label for="avatarFile" class="btn btn-small btn-outline">Fichier</label>
+                                            <input type="file" id="avatarFile" accept="image/*" style="display: none;">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label class="form-label">Forme de la photo</label>
+                                        <div class="radio-toggle">
+                                            <label class="radio-btn"><input type="radio" name="avatarShape" value="circle" checked> Rond</label>
+                                            <label class="radio-btn"><input type="radio" name="avatarShape" value="square"> Carré</label>
+                                        </div>
+                                    </div>
+                                    <div class="input-group col-span-2">
+                                        <label for="logoUrl">Logo d'entreprise (URL)</label>
+                                        <div class="file-url-input">
+                                            <input type="url" id="logoUrl" placeholder="https://..." value="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+                                            <label for="logoFile" class="btn btn-small btn-outline">Fichier</label>
+                                            <input type="file" id="logoFile" accept="image/*" style="display: none;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <!-- Section 3: Coordonnées -->
+                            <details open class="form-accordion">
+                                <summary class="accordion-header">Coordonnées Directes</summary>
+                                <div class="accordion-body form-grid-2">
+                                    <div class="input-group">
+                                        <label for="email">Adresse e-mail *</label>
+                                        <input type="email" id="email" placeholder="email@exemple.com" value="prenom.nom@exemple.com">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="mobile">Téléphone Mobile</label>
+                                        <input type="tel" id="mobile" placeholder="+33 6 00 00 00 00" value="+33 6 00 00 00 00">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="phone">Téléphone Fixe</label>
+                                        <input type="tel" id="phone" placeholder="+33 1 00 00 00 00" value="+33 1 00 00 00 00">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="website">Site Web</label>
+                                        <input type="text" id="website" placeholder="www.exemple.com" value="www.exemple.com">
+                                    </div>
+                                    <div class="input-group col-span-2">
+                                        <label for="address">Adresse physique</label>
+                                        <input type="text" id="address" placeholder="123 Rue Exemple, 75000 Paris" value="123 Rue Exemple, 75000 Paris">
+                                    </div>
+                                </div>
+                            </details>
+
+                            <!-- Section 4: Réseaux Sociaux -->
+                            <details class="form-accordion">
+                                <summary class="accordion-header">Réseaux Sociaux & Liens</summary>
+                                <div class="accordion-body form-grid-2">
+                                    <div class="input-group">
+                                        <label for="linkedin">LinkedIn</label>
+                                        <input type="url" id="linkedin" placeholder="https://linkedin.com/in/..." value="https://linkedin.com">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="malt">Malt</label>
+                                        <input type="url" id="malt" placeholder="https://malt.fr/profile/..." value="https://www.malt.fr/profile/ibanmarlats">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="github">GitHub</label>
+                                        <input type="url" id="github" placeholder="https://github.com/..." value="https://github.com">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="calendly">Calendly</label>
+                                        <input type="url" id="calendly" placeholder="https://calendly.com/..." value="https://calendly.com">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="twitter">X / Twitter</label>
+                                        <input type="url" id="twitter" placeholder="https://x.com/..." value="https://x.com">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="instagram">Instagram</label>
+                                        <input type="url" id="instagram" placeholder="https://instagram.com/..." value="">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="customSocialName">Nom Réseau Perso</label>
+                                        <input type="text" id="customSocialName" placeholder="ex: Facebook, TikTok..." value="">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="customSocialUrl">Lien URL Perso</label>
+                                        <input type="url" id="customSocialUrl" placeholder="https://..." value="">
+                                    </div>
+                                    <div class="input-group col-span-2">
+                                        <label for="customSocialIconUrl">Icône Réseau Perso (URL ou Fichier image)</label>
+                                        <div class="file-url-input">
+                                            <input type="url" id="customSocialIconUrl" placeholder="https://..." value="">
+                                            <label for="customSocialIconFile" class="btn btn-small btn-outline">Fichier</label>
+                                            <input type="file" id="customSocialIconFile" accept="image/*" style="display: none;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <!-- Section 5: Informations Légales -->
+                            <details class="form-accordion">
+                                <summary class="accordion-header">Informations Légales & B2B</summary>
+                                <div class="accordion-body form-grid-2">
+                                    <div class="input-group">
+                                        <label for="siret">Numéro SIRET</label>
+                                        <input type="text" id="siret" placeholder="890 123 456 00018" value="890 123 456 00018">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="legalForm">Forme juridique</label>
+                                        <input type="text" id="legalForm" placeholder="SASU au capital de 5 000 €" value="SASU au capital de 5 000 €">
+                                    </div>
+                                    <div class="input-group col-span-2">
+                                        <label for="tva">N° TVA Intracommunautaire</label>
+                                        <input type="text" id="tva" placeholder="FR 45 890123456" value="FR 45 890123456">
+                                    </div>
+                                    <div class="input-group col-span-2">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="showDisclaimer" checked>
+                                            Afficher la mention de confidentialité
+                                        </label>
+                                    </div>
+                                    <div class="input-group col-span-2" id="disclaimer-container">
+                                        <label for="disclaimerText">Texte de confidentialité</label>
+                                        <textarea id="disclaimerText" rows="2">Ce message et ses pièces jointes sont confidentiels et réservés à l'usage exclusif de son destinataire.</textarea>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <!-- Section 6: Promo & Bannière -->
+                            <details class="form-accordion">
+                                <summary class="accordion-header">Bannières, CTA, Badge, Éco</summary>
+                                <div class="accordion-body form-grid-2">
+                                    <div class="input-group col-span-2">
+                                        <label for="bannerUrl">Image de bannière (URL)</label>
+                                        <div class="file-url-input">
+                                            <input type="url" id="bannerUrl" placeholder="https://..." value="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&auto=format&fit=crop&q=60">
+                                            <label for="bannerFile" class="btn btn-small btn-outline">Fichier</label>
+                                            <input type="file" id="bannerFile" accept="image/*" style="display: none;">
+                                        </div>
+                                    </div>
+                                    <div class="input-group col-span-2">
+                                        <label for="bannerHeight">Hauteur / Rognage de la bannière</label>
+                                        <select id="bannerHeight" class="toolbar-select">
+                                            <option value="50" selected>Rogné à 50% de hauteur (Par défaut)</option>
+                                            <option value="33">Rogné à 33% (Format très fin)</option>
+                                            <option value="66">Rogné à 66% (Hauteur moyenne)</option>
+                                            <option value="75">Rogné à 75% (Hauteur large)</option>
+                                            <option value="100">100% (Hauteur originale complète)</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group col-span-2">
+                                        <label for="bannerUrlLink">Lien de la bannière</label>
+                                        <input type="url" id="bannerUrlLink" placeholder="https://..." value="https://acmedigital.fr/offres">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="ctaText">Appel à l'action (Texte)</label>
+                                        <input type="text" id="ctaText" placeholder="ex: Réserver un appel" value="Réserver un appel découverte">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="ctaUrl">Lien du bouton CTA</label>
+                                        <input type="url" id="ctaUrl" placeholder="https://calendly.com/..." value="https://calendly.com">
+                                    </div>
+                                    <div class="input-group col-span-2">
+                                        <label for="badgeText">Badge / Label</label>
+                                        <input type="text" id="badgeText" placeholder="ex: 5.0 (48 avis Google)" value="5.0 (48 avis Google)">
+                                    </div>
+                                    <div class="input-group col-span-2">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="showEcoMessage" checked>
+                                            Afficher le message éco-responsable
+                                        </label>
+                                    </div>
+                                    <div class="input-group col-span-2" id="eco-container">
+                                        <label for="ecoMessageText">Message éco-responsable</label>
+                                        <input type="text" id="ecoMessageText" value="Pensez à l'environnement avant d'imprimer ce message.">
+                                    </div>
+                                </div>
+                            </details>
+                        </form>
+                    </div>
+
+                    <!-- RIGHT COLUMN: Realtime Preview & Copy Actions -->
+                    <div class="modal-preview-side">
+                        <div class="panel-header flex-between">
+                            <h3>Aperçu direct</h3>
+                            <div class="tab-switcher">
+                                <button type="button" id="tab-visual" class="tab-btn active">Visualisation</button>
+                                <button type="button" id="tab-code" class="tab-btn">Code HTML</button>
+                            </div>
+                        </div>
+
+                        <div class="email-mockup-wrapper">
+                            <div class="email-header-bar">
+                                <span class="mockup-title">Aperçu du message</span>
+                            </div>
+                            <div class="email-body-area">
+                                <div class="dummy-email-text">
+                                    <p>Bonjour,</p>
+                                    <p>Voici la signature générée ci-dessous.</p>
+                                </div>
+                                <div class="signature-divider"></div>
+                                
+                                <div id="render-target-wrapper" class="render-view active">
+                                    <div id="signature-preview-target">
+                                        <!-- Rendered output -->
+                                    </div>
+                                </div>
+
+                                <div id="code-target-wrapper" class="code-view">
+                                    <pre><code id="signature-code-target"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions Bar -->
+                        <div class="export-actions-bar">
+                            <button type="button" id="btn-copy-rich" class="btn btn-primary btn-lg">
+                                Copier la Signature (Visuel)
+                            </button>
+                            <button type="button" id="btn-copy-html" class="btn btn-secondary btn-lg">
+                                Copier le Code HTML
+                            </button>
+                            <button type="button" id="btn-download-html" class="btn btn-outline">
+                                Télécharger .html
+                            </button>
+                        </div>
+                        <div style="text-align: center; margin-top: 8px;">
+                            <button type="button" id="btn-open-tuto" class="btn btn-outline" style="border-color: #0f172a; color: #0f172a; font-weight: 800; width: 100%;">
+                                Comment installer ma signature ?
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <p>MailSignature Generator</p>
+        </footer>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">
+        <span id="toast-message">Signature copiée dans le presse-papier !</span>
+    </div>
+
+    <!-- Dialog Mini Popup: Harmonisation Couleur (Classique Oui/Non) -->
+    <div id="color-harmony-popup" class="mini-popup-backdrop hidden">
+        <div class="mini-popup-box">
+            <div class="mini-popup-title">Ajuster la couleur complémentaire ?</div>
+            <p class="mini-popup-desc">Voulez-vous appliquer la couleur secondaire complémentaire <strong id="harmony-suggested-hex">#000000</strong> ?</p>
+            <div class="mini-popup-swatch-bar">
+                <span class="swatch-label">Aperçu :</span>
+                <div id="harmony-swatch-box" class="swatch-preview"></div>
+            </div>
+            <div class="mini-popup-actions">
+                <button type="button" id="btn-harmony-yes" class="btn btn-small btn-primary" style="padding: 6px 16px; font-weight: 800;">OUI</button>
+                <button type="button" id="btn-harmony-no" class="btn btn-small btn-outline" style="padding: 6px 16px; font-weight: 800;">NON</button>
+            </div>
+            <div class="mini-popup-remember">
+                <label class="checkbox-label" style="font-size: 11px; font-weight: 500;">
+                    <input type="checkbox" id="dontAskColorHarmony"> Ne plus me demander
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dialog Confirmation: Réinitialiser (Classique Oui/Non) -->
+    <div id="reset-confirm-popup" class="mini-popup-backdrop hidden">
+        <div class="mini-popup-box">
+            <div class="mini-popup-title">Confirmation de réinitialisation</div>
+            <p class="mini-popup-desc">Voulez-vous vraiment réinitialiser toutes les données et le formulaire ?</p>
+            <div class="mini-popup-actions">
+                <button type="button" id="btn-reset-yes" class="btn btn-small btn-primary" style="padding: 6px 16px; font-weight: 800;">OUI</button>
+                <button type="button" id="btn-reset-no" class="btn btn-small btn-outline" style="padding: 6px 16px; font-weight: 800;">NON</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dialog Tutoriel : Installer la signature (Gmail / Outlook) -->
+    <div id="tuto-popup" class="mini-popup-backdrop hidden">
+        <div class="tuto-popup-box">
+            <div class="tuto-popup-header">
+                <div class="tuto-popup-title">Comment installer ma signature ?</div>
+                <button type="button" id="btn-close-tuto" class="modal-close-btn">&times;</button>
+            </div>
+            <div class="tuto-tabs">
+                <button type="button" class="tuto-tab active" data-tuto-tab="gmail">Gmail</button>
+                <button type="button" class="tuto-tab" data-tuto-tab="outlook">Outlook</button>
+            </div>
+            <div class="tuto-content" id="tuto-content-gmail">
+                <div class="tuto-step">
+                    <div class="tuto-step-num">1</div>
+                    <div class="tuto-step-text">
+                        <strong>Copiez votre signature</strong>
+                        <p>Cliquez sur le bouton <strong>Copier la Signature (Visuel)</strong> ci-dessous. La signature est maintenant dans votre presse-papier.</p>
+                    </div>
+                </div>
+                <div class="tuto-step">
+                    <div class="tuto-step-num">2</div>
+                    <div class="tuto-step-text">
+                        <strong>Ouvrez les paramètres Gmail</strong>
+                        <p>Dans Gmail, cliquez sur l'icone <strong>Paramètres</strong> (roue dentée en haut à droite), puis <strong>Voir tous les paramètres</strong>.</p>
+                    </div>
+                </div>
+                <div class="tuto-step">
+                    <div class="tuto-step-num">3</div>
+                    <div class="tuto-step-text">
+                        <strong>Allez dans l'onglet Signature</strong>
+                        <p>Restez dans l'onglet <strong>Général</strong>, puis descendez jusqu'à la section <strong>Signature</strong>. Cliquez sur <strong>Créer</strong> pour ajouter une nouvelle signature (ou modifiez la signature existante).</p>
+                    </div>
+                </div>
+                <div class="tuto-step">
+                    <div class="tuto-step-num">4</div>
+                    <div class="tuto-step-text">
+                        <strong>Collez votre signature</strong>
+                        <p>Cliquez dans la zone de texte de la signature, puis collez avec <strong>Ctrl + V</strong> (ou Cmd + V sur Mac).</p>
+                    </div>
+                </div>
+                <div class="tuto-step">
+                    <div class="tuto-step-num">5</div>
+                    <div class="tuto-step-text">
+                        <strong>Enregistrez</strong>
+                        <p>Descendez tout en bas de la page et cliquez sur <strong>Enregistrer les modifications</strong>. Votre signature apparaitra automatiquement dans vos prochains e-mails.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tuto-content hidden" id="tuto-content-outlook">
+                <div class="tuto-step">
+                    <div class="tuto-step-num">1</div>
+                    <div class="tuto-step-text">
+                        <strong>Copiez votre signature</strong>
+                        <p>Cliquez sur le bouton <strong>Copier la Signature (Visuel)</strong> ci-dessous. La signature est maintenant dans votre presse-papier.</p>
+                    </div>
+                </div>
+                <div class="tuto-step">
+                    <div class="tuto-step-num">2</div>
+                    <div class="tuto-step-text">
+                        <strong>Ouvrez Outlook Web ou Desktop</strong>
+                        <p><strong>Web :</strong> Cliquez sur la roue dentée <strong>Paramètres</strong> en haut à droite, puis <strong>Courrier</strong> > <strong>Rédiger et répondre</strong>.<br>
+                        <strong>Desktop :</strong> Allez dans <strong>Fichier</strong> > <strong>Options</strong> > <strong>Courrier</strong> > <strong>Signatures</strong>.</p>
+                    </div>
+                </div>
+                <div class="tuto-step">
+                    <div class="tuto-step-num">3</div>
+                    <div class="tuto-step-text">
+                        <strong>Créez ou modifiez une signature</strong>
+                        <p>Cliquez sur <strong>Nouvelle signature</strong> (ou sélectionnez la signature existante à modifier). Donnez-lui un nom.</p>
+                    </div>
+                </div>
+                <div class="tuto-step">
+                    <div class="tuto-step-num">4</div>
+                    <div class="tuto-step-text">
+                        <strong>Collez votre signature</strong>
+                        <p>Cliquez dans la zone d'édition de la signature, puis collez avec <strong>Ctrl + V</strong> (ou Cmd + V sur Mac).</p>
+                    </div>
+                </div>
+                <div class="tuto-step">
+                    <div class="tuto-step-num">5</div>
+                    <div class="tuto-step-text">
+                        <strong>Enregistrez</strong>
+                        <p>Cliquez sur <strong>Enregistrer</strong>. Pensez à définir cette signature par défaut pour les nouveaux messages et/ou les réponses/transferts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/templates.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
