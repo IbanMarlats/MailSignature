@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MailSignature — Générateur de Signature E-mail Pro</title>
     <meta name="description" content="Créez et personnalisez votre signature e-mail professionnelle. Compatible Gmail, Outlook, Apple Mail. 11 modèles.">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;700&family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- CSS stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="app-container">
-        <!-- Header -->
         <header class="app-header">
             <div class="logo-area">
                 <div class="logo-text">
@@ -23,7 +20,6 @@
                 </div>
             </div>
 
-            <!-- PERMANENT TOP COLOR & STYLE BAR -->
             <div class="top-color-toolbar">
                 <div class="toolbar-item">
                     <label>Palettes :</label>
@@ -105,14 +101,12 @@
             </div>
         </header>
 
-        <!-- STEP 1: MODEL SELECTION SHOWCASE VIEW -->
         <section id="step-selection-view" class="step-view active">
             <div class="step-banner">
                 <h2>1. Choisissez votre modèle de signature</h2>
                 <p>Testez les couleurs en direct ci-dessus. Tout est entièrement personnalisable (textes, photos, logos, liens, réseaux sociaux) en cliquant sur <strong>Suivant</strong>.</p>
             </div>
 
-            <!-- Model Carousel / Showcase -->
             <div class="template-showcase-container">
                 <button type="button" id="btn-prev-template" class="nav-arrow-btn">‹</button>
                 
@@ -130,7 +124,6 @@
                             </div>
                             <div class="email-body-area">
                                 <div id="showcase-live-preview">
-                                    <!-- Rendered Template Output -->
                                 </div>
                             </div>
                         </div>
@@ -140,7 +133,6 @@
                 <button type="button" id="btn-next-template" class="nav-arrow-btn">›</button>
             </div>
 
-            <!-- Thumbnails Selector Bar -->
             <div class="thumbnails-bar" id="template-selector-thumbnails">
                 <button type="button" class="thumb-btn active" data-template="studio">1. Sur-Mesure</button>
                 <button type="button" class="thumb-btn" data-template="modern">2. Corporate</button>
@@ -155,7 +147,6 @@
                 <button type="button" class="thumb-btn" data-template="classic">11. Classique</button>
             </div>
 
-            <!-- Action Button: Goto Step 2 & Direct Copy -->
             <div class="step-footer-actions" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
                 <button type="button" id="btn-copy-direct-showcase" class="btn btn-primary btn-xl" style="background: #10b981;">
                     Copier la Signature (1 Clic)
@@ -166,7 +157,6 @@
             </div>
         </section>
 
-        <!-- STEP 2: MODAL POPUP FOR CUSTOMIZATION -->
         <div id="customization-modal" class="modal-backdrop hidden">
             <div class="modal-window">
                 <div class="modal-header">
@@ -183,10 +173,8 @@
                 </div>
 
                 <div class="modal-body-grid">
-                    <!-- LEFT COLUMN: Form Sections -->
                     <div class="modal-form-side">
                         <form id="signature-form" onsubmit="event.preventDefault();">
-                            <!-- Section 0: Options Studio Sur-Mesure -->
                             <details open class="form-accordion" id="studio-options-accordion">
                                 <summary class="accordion-header">🎨 Options Modèle Sur-Mesure</summary>
                                 <div class="accordion-body form-grid-2">
@@ -230,7 +218,6 @@
                                 </div>
                             </details>
 
-                            <!-- Section 1: Identité & Poste -->
                             <details open class="form-accordion">
                                 <summary class="accordion-header">Identité & Entreprise</summary>
                                 <div class="accordion-body form-grid-2">
@@ -257,7 +244,6 @@
                                 </div>
                             </details>
 
-                            <!-- Section 2: Photos & Visuels -->
                             <details open class="form-accordion">
                                 <summary class="accordion-header">Photos & Logos</summary>
                                 <div class="accordion-body form-grid-2">
@@ -287,7 +273,6 @@
                                 </div>
                             </details>
 
-                            <!-- Section 3: Coordonnées -->
                             <details open class="form-accordion">
                                 <summary class="accordion-header">Coordonnées Directes</summary>
                                 <div class="accordion-body form-grid-2">
@@ -314,7 +299,6 @@
                                 </div>
                             </details>
 
-                            <!-- Section 4: Réseaux Sociaux -->
                             <details class="form-accordion">
                                 <summary class="accordion-header">Réseaux Sociaux & Liens</summary>
                                 <div class="accordion-body form-grid-2">
@@ -361,7 +345,6 @@
                                 </div>
                             </details>
 
-                            <!-- Section 5: Informations Légales -->
                             <details class="form-accordion">
                                 <summary class="accordion-header">Informations Légales & B2B</summary>
                                 <div class="accordion-body form-grid-2">
@@ -390,7 +373,6 @@
                                 </div>
                             </details>
 
-                            <!-- Section 6: Promo & Bannière -->
                             <details class="form-accordion">
                                 <summary class="accordion-header">Bannières, CTA, Badge, Éco</summary>
                                 <div class="accordion-body form-grid-2">
@@ -443,7 +425,6 @@
                         </form>
                     </div>
 
-                    <!-- RIGHT COLUMN: Realtime Preview & Copy Actions -->
                     <div class="modal-preview-side">
                         <div class="panel-header flex-between">
                             <h3>Aperçu direct</h3>
@@ -466,7 +447,6 @@
                                 
                                 <div id="render-target-wrapper" class="render-view active">
                                     <div id="signature-preview-target">
-                                        <!-- Rendered output -->
                                     </div>
                                 </div>
 
@@ -476,7 +456,6 @@
                             </div>
                         </div>
 
-                        <!-- Actions Bar -->
                         <div class="export-actions-bar">
                             <button type="button" id="btn-copy-rich" class="btn btn-primary btn-lg">
                                 Copier la Signature (Visuel)
@@ -503,12 +482,10 @@
         </footer>
     </div>
 
-    <!-- Notification Toast -->
     <div id="toast" class="toast hidden">
         <span id="toast-message">Signature copiée dans le presse-papier !</span>
     </div>
 
-    <!-- Dialog Mini Popup: Harmonisation Couleur (Classique Oui/Non) -->
     <div id="color-harmony-popup" class="mini-popup-backdrop hidden">
         <div class="mini-popup-box">
             <div class="mini-popup-title">Ajuster la couleur complémentaire ?</div>
@@ -529,7 +506,6 @@
         </div>
     </div>
 
-    <!-- Dialog Confirmation: Réinitialiser (Classique Oui/Non) -->
     <div id="reset-confirm-popup" class="mini-popup-backdrop hidden">
         <div class="mini-popup-box">
             <div class="mini-popup-title">Confirmation de réinitialisation</div>
@@ -541,7 +517,6 @@
         </div>
     </div>
 
-    <!-- Dialog Tutoriel : Installer la signature (Gmail / Outlook) -->
     <div id="tuto-popup" class="mini-popup-backdrop hidden">
         <div class="tuto-popup-box">
             <div class="tuto-popup-header">
@@ -630,7 +605,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="js/templates.js"></script>
     <script src="js/app.js"></script>
 </body>

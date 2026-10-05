@@ -36,7 +36,6 @@ body {
     gap: 16px;
 }
 
-/* Header */
 .app-header {
     display: flex;
     align-items: center;
@@ -128,7 +127,6 @@ body {
     gap: 10px;
 }
 
-/* Step 1 Showcase & Navigation */
 .step-banner {
     text-align: center;
     margin-bottom: 24px;
@@ -241,7 +239,6 @@ body {
     width: 100%;
 }
 
-/* Thumbnails Bar - Cadre bien délimité */
 .thumbnails-bar {
     display: flex;
     flex-wrap: wrap;
@@ -289,7 +286,6 @@ body {
     font-weight: 800;
 }
 
-/* Modal Popup Window */
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -412,7 +408,6 @@ body {
     top: 0;
 }
 
-/* Workspace Grid */
 .workspace-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -425,7 +420,6 @@ body {
     }
 }
 
-/* Panel Cards */
 .glass-card {
     background: var(--panel-bg);
     border: 2px solid #cbd5e1;
@@ -465,7 +459,6 @@ body {
     margin-top: 2px;
 }
 
-/* Form Styles */
 #signature-form {
     display: flex;
     flex-direction: column;
@@ -484,7 +477,6 @@ body {
     color: #1e293b;
 }
 
-/* Form Accordions - Alternance Blanc / Gris très clair avec délimitations très nettes */
 .form-accordion {
     border: 2px solid #cbd5e1;
     border-radius: 8px;
@@ -493,7 +485,6 @@ body {
     background: #ffffff;
 }
 
-/* Alternance des couleurs de fond entre sections */
 .form-accordion:nth-child(odd) {
     background: #ffffff;
 }
@@ -619,7 +610,6 @@ textarea:focus {
     gap: 6px;
 }
 
-/* Palette Presets */
 .palette-presets-bar {
     display: flex;
     align-items: center;
@@ -680,7 +670,6 @@ input[type="color"]::-webkit-color-swatch {
     text-transform: uppercase;
 }
 
-/* Radio & Checkbox */
 .radio-toggle {
     display: flex;
     gap: 14px;
@@ -697,7 +686,6 @@ input[type="color"]::-webkit-color-swatch {
     cursor: pointer;
 }
 
-/* Right Panel Preview Area */
 .flex-between {
     display: flex;
     justify-content: space-between;
@@ -805,7 +793,6 @@ input[type="color"]::-webkit-color-swatch {
     word-break: break-all;
 }
 
-/* Export Buttons */
 .export-actions-bar {
     display: flex;
     flex-wrap: wrap;
@@ -867,7 +854,6 @@ input[type="color"]::-webkit-color-swatch {
     flex: 1;
 }
 
-/* Setup Guides */
 .setup-guides-box {
     background: #f8fafc;
     border: 1px solid var(--border);
@@ -949,7 +935,6 @@ input[type="color"]::-webkit-color-swatch {
     padding: 8px 0;
 }
 
-/* Mini Dialog Popups (Color Harmony & Reset Confirmation) */
 .mini-popup-backdrop {
     position: fixed;
     top: 0;
@@ -1035,7 +1020,6 @@ input[type="color"]::-webkit-color-swatch {
     margin-top: 4px;
 }
 
-/* Tutorial Popup */
 .tuto-popup-box {
     background: #ffffff;
     border: 2px solid #0f172a;

@@ -1,10 +1,4 @@
-/**
- * Email Signature Templates Engine - Distinct & Premium Layouts
- * Inspired by modern business cards (Side block color fill, pill badge headers, dual tone, stacked cards).
- */
-
 const SignatureTemplates = {
-    // Utility for social icons
     getSocialIcon(platform, url) {
         if (!url) return '';
         const icons = {
@@ -84,7 +78,6 @@ const SignatureTemplates = {
         return list.filter(Boolean).join('');
     },
 
-    // 0. Studio Sur-Mesure (Entièrement personnalisable: formes, disposition, séparateurs)
     studio(data) {
         const color = data.primaryColor || '#2563eb';
         const accent = data.secondaryColor || '#e11d48';
@@ -94,12 +87,10 @@ const SignatureTemplates = {
         const separator = data.customSeparator || 'dot';
         const socials = this.getSocialsList(data);
 
-        // Separator char
         let sepChar = ' • ';
         if (separator === 'newline') sepChar = '<br>';
 
-        // Build photo/logo elements (dual branding or single)
-        const mediaChoice = data.customMediaChoice || 'both'; // 'both', 'avatar', 'logo', 'none'
+        const mediaChoice = data.customMediaChoice || 'both';
         const hasAvatar = !!data.avatarUrl && layoutPos !== 'none' && (mediaChoice === 'both' || mediaChoice === 'avatar');
         const hasLogo = !!data.logoUrl && layoutPos !== 'none' && (mediaChoice === 'both' || mediaChoice === 'logo');
 
@@ -114,7 +105,6 @@ const SignatureTemplates = {
             logoHtml = `<img src="${data.logoUrl}" alt="Logo" width="80" style="display: block; max-height: 52px; object-fit: contain;" />`;
         }
 
-        // Build contact items array
         const contactItems = [];
         if (data.email) contactItems.push(`✉️ <a href="mailto:${data.email}" style="color: ${color}; text-decoration: none;">${data.email}</a>`);
         if (data.mobile) contactItems.push(`📱 ${data.mobile}`);
@@ -123,7 +113,6 @@ const SignatureTemplates = {
 
         const contactString = contactItems.join(sepChar);
 
-        // Styling according to frameStyle
         let containerStyle = `font-family: ${fontFamily}; font-size: 13px; line-height: 1.5; color: #334155; width: 100%; max-width: 560px;`;
         
         if (frameStyle === 'card') {
@@ -150,7 +139,6 @@ const SignatureTemplates = {
 
         const taglineHtml = data.tagline ? `<div style="font-size: 11px; font-style: italic; color: ${isPill ? 'rgba(255,255,255,0.8)' : '#64748b'}; margin-top: 3px;">${data.tagline}</div>` : '';
 
-        // HEADER FILL FRAME
         if (frameStyle === 'header-fill') {
             return `
 <table cellpadding="0" cellspacing="0" border="0" style="${containerStyle}">
@@ -182,7 +170,6 @@ const SignatureTemplates = {
 </table>`.trim();
         }
 
-        // TOP CENTERED LAYOUT
         if (layoutPos === 'top') {
             return `
 <table cellpadding="0" cellspacing="0" border="0" style="${containerStyle}">
@@ -209,7 +196,6 @@ const SignatureTemplates = {
 </table>`.trim();
         }
 
-        // RIGHT LAYOUT
         if (layoutPos === 'right') {
             return `
 <table cellpadding="0" cellspacing="0" border="0" style="${containerStyle}">
@@ -238,7 +224,6 @@ const SignatureTemplates = {
 </table>`.trim();
         }
 
-        // DEFAULT LEFT LAYOUT (DUAL BRANDING HARMONY - INIESTA X XAVI)
         return `
 <table cellpadding="0" cellspacing="0" border="0" style="${containerStyle}">
     <tr>
@@ -258,7 +243,6 @@ const SignatureTemplates = {
 </table>`.trim();
     },
 
-    // 1. Business Card Split Fill (Inspired by Image 1: Side colored banner card with profile frame)
     modern(data) {
         const color = data.primaryColor || '#0f172a';
         const accent = data.secondaryColor || '#e11d48';
@@ -293,7 +277,6 @@ const SignatureTemplates = {
 </table>`.trim();
     },
 
-    // 2. Curved Pill Frame (Inspired by Image 2: Bold curved colored capsule with offset avatar)
     sleek(data) {
         const color = data.primaryColor || '#1e3a8a';
         const accent = data.secondaryColor || '#f43f5e';
@@ -327,7 +310,6 @@ const SignatureTemplates = {
 </table>`.trim();
     },
 
-    // 3. Yellow/Gold Admissions & Banner Block (Inspired by Image 3: Yellow card block with CTA)
     freelance(data) {
         const color = data.primaryColor || '#d97706';
         const fontFamily = data.fontFamily || 'Verdana, sans-serif';
@@ -374,7 +356,6 @@ const SignatureTemplates = {
 </table>`.trim();
     },
 
-    // 4. Executive Left Thick Accent Bar
     executive(data) {
         const color = data.primaryColor || '#0f172a';
         const accent = data.secondaryColor || '#dc2626';
@@ -403,7 +384,6 @@ const SignatureTemplates = {
 </table>`.trim();
     },
 
-    // 5. Compact Horizon (Single-Line clean & spaced)
     compact(data) {
         const color = data.primaryColor || '#2563eb';
         const fontFamily = data.fontFamily || 'Segoe UI, Tahoma, sans-serif';
@@ -433,7 +413,6 @@ const SignatureTemplates = {
 </table>`.trim();
     },
 
-    // 6. Dual Branding Stacked Box
     dualbrand(data) {
         const color = data.primaryColor || '#0284c7';
         const fontFamily = data.fontFamily || 'Arial, sans-serif';
@@ -467,7 +446,6 @@ const SignatureTemplates = {
 </table>`.trim();
     },
 
-    // 7. Full Banner Focus
     banner(data) {
         const color = data.primaryColor || '#ea580c';
         const fontFamily = data.fontFamily || 'Helvetica, Arial, sans-serif';
@@ -490,7 +468,6 @@ const SignatureTemplates = {
 </table>`.trim();
     },
 
-    // 8. Rating & Review Agency Card
     agencysales(data) {
         const color = data.primaryColor || '#2563eb';
         const fontFamily = data.fontFamily || 'Arial, sans-serif';
@@ -516,7 +493,6 @@ const SignatureTemplates = {
 </table>`.trim();
     },
 
-    // 9. Eco Left Green Line
     ecogreen(data) {
         const color = data.primaryColor || '#16a34a';
         const fontFamily = data.fontFamily || 'Trebuchet MS, sans-serif';
@@ -540,7 +516,6 @@ const SignatureTemplates = {
 </table>`.trim();
     },
 
-    // 10. Serif Frame
     classic(data) {
         const color = data.primaryColor || '#475569';
         const fontFamily = data.fontFamily || 'Georgia, serif';

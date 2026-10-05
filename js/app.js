@@ -1,7 +1,3 @@
-/**
- * MailSignature App Controller - Guided Step 1 & Step 2 Popup Modal Architecture
- */
-
 document.addEventListener('DOMContentLoaded', () => {
     const templatesList = [
         { id: 'studio', name: '1. Studio Sur-Mesure', desc: 'Entièrement personnalisable : forme du cadre, position du visuel, séparateurs' },
@@ -22,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentHtml = '';
     let isSecondaryManuallySet = false;
 
-    // DOM Elements - Showcase / Step 1
     const showcaseNumber = document.getElementById('showcase-template-number');
     const showcaseName = document.getElementById('showcase-template-name');
     const showcaseDesc = document.getElementById('showcase-template-desc');
@@ -31,27 +26,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNextTemplate = document.getElementById('btn-next-template');
     const thumbBtns = document.querySelectorAll('.thumb-btn');
 
-    // DOM Elements - Modal Step 2
     const btnGotoCustomization = document.getElementById('btn-goto-customization');
     const customizationModal = document.getElementById('customization-modal');
     const btnCloseModal = document.getElementById('btn-close-modal');
     const btnBackToModels = document.getElementById('btn-back-to-models');
 
-    // DOM Elements - Form & Target
     const form = document.getElementById('signature-form');
     const previewTarget = document.getElementById('signature-preview-target');
     const codeTarget = document.getElementById('signature-code-target');
     const toast = document.getElementById('toast');
     const toastMessage = document.getElementById('toast-message');
 
-    // Color Inputs
     const primaryColorInput = document.getElementById('primaryColor');
     const primaryColorText = document.getElementById('primaryColorText');
     const secondaryColorInput = document.getElementById('secondaryColor');
     const secondaryColorText = document.getElementById('secondaryColorText');
     const paletteBtns = document.querySelectorAll('.palette-btn');
 
-    // Image Inputs
     const avatarUrlInput = document.getElementById('avatarUrl');
     const avatarFileInput = document.getElementById('avatarFile');
     const logoUrlInput = document.getElementById('logoUrl');
@@ -59,25 +50,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const bannerUrlInput = document.getElementById('bannerUrl');
     const bannerFileInput = document.getElementById('bannerFile');
 
-    // Toggles
     const showDisclaimerCheckbox = document.getElementById('showDisclaimer');
     const disclaimerContainer = document.getElementById('disclaimer-container');
     const showEcoCheckbox = document.getElementById('showEcoMessage');
     const ecoContainer = document.getElementById('eco-container');
 
-    // Tabs
     const tabVisual = document.getElementById('tab-visual');
     const tabCode = document.getElementById('tab-code');
     const renderWrapper = document.getElementById('render-target-wrapper');
     const codeWrapper = document.getElementById('code-target-wrapper');
 
-    // Action Buttons
     const btnCopyRich = document.getElementById('btn-copy-rich');
     const btnCopyHtml = document.getElementById('btn-copy-html');
     const btnDownloadHtml = document.getElementById('btn-download-html');
     const btnReset = document.getElementById('btn-reset');
 
-    // Popups
     const colorHarmonyPopup = document.getElementById('color-harmony-popup');
     const harmonySuggestedHex = document.getElementById('harmony-suggested-hex');
     const harmonySwatchBox = document.getElementById('harmony-swatch-box');
@@ -90,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnResetYes = document.getElementById('btn-reset-yes');
     const btnResetNo = document.getElementById('btn-reset-no');
 
-    // Default Sample Data (Generic Neutral Placeholders)
     const sampleData = {
         fullName: 'Prénom Nom',
         jobTitle: 'Intitulé du poste',
@@ -135,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         customSocialIconUrl: ''
     };
 
-    // --- Color Harmonizer Functions ---
     function hexToHSL(hex) {
         let r = parseInt(hex.substring(1, 3), 16) / 255;
         let g = parseInt(hex.substring(3, 5), 16) / 255;
@@ -189,7 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return hslToHex(newHue, newSat, newLight);
     }
 
-    // Read Form Values
     function getFormData() {
         return {
             fullName: document.getElementById('fullName').value.trim(),
@@ -237,7 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Update Step 1 Showcase UI
     function updateShowcaseUI() {
         const currentItem = templatesList[currentTemplateIndex];
         currentTemplate = currentItem.id;
@@ -246,14 +229,12 @@ document.addEventListener('DOMContentLoaded', () => {
         showcaseName.textContent = currentItem.name;
         showcaseDesc.textContent = currentItem.desc;
 
-        // Render current template in showcase live preview
         const data = getFormData();
         if (SignatureTemplates[currentTemplate]) {
             const html = SignatureTemplates[currentTemplate](data);
             showcaseLivePreview.innerHTML = html;
         }
 
-        // Highlight active thumbnail
         thumbBtns.forEach(btn => {
             if (btn.dataset.template === currentTemplate) {
                 btn.classList.add('active');
@@ -262,11 +243,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Also render popup modal preview
         renderSignature();
     }
 
-    // Render Modal Signature
     function renderSignature() {
         const data = getFormData();
         if (SignatureTemplates[currentTemplate]) {
@@ -277,7 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Navigation Step 1 Carousel
     btnPrevTemplate.addEventListener('click', () => {
         currentTemplateIndex = (currentTemplateIndex - 1 + templatesList.length) % templatesList.length;
         updateShowcaseUI();
@@ -295,7 +273,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Step 2 Modal & Navigation Handlers
     function openCustomizationModal(pushHistory = true) {
         customizationModal.classList.remove('hidden');
         renderSignature();
@@ -341,7 +318,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // LocalStorage
     function saveToLocalStorage(data) {
         try {
             localStorage.setItem('mailsignature_data_v4', JSON.stringify({
@@ -402,7 +378,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateShowcaseUI();
     }
 
-    // Form Listener
     const handleFormUpdate = () => {
         renderSignature();
         const data = getFormData();
@@ -423,7 +398,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Color Harmony Prompt Handler
     function checkAndPromptColorHarmony(primaryHex) {
         if (localStorage.getItem('mailsignature_dont_ask_harmony') === 'true') {
             return;
@@ -547,7 +521,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, width, height);
 
-                // Export optimized light Data URL
                 const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
                 callback(compressedDataUrl);
             };
@@ -578,7 +551,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const customSocialIconUrlInput = document.getElementById('customSocialIconUrl');
     setupFileToInput(customSocialIconFileInput, customSocialIconUrlInput, 'Icône réseau personnalisée chargée !', 64);
 
-    // Tabs
     tabVisual.addEventListener('click', () => {
         tabVisual.classList.add('active');
         tabCode.classList.remove('active');
@@ -593,7 +565,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderWrapper.classList.remove('active');
     });
 
-    // Copy & Export Actions
     const copyRichSignatureHandler = async () => {
         try {
             const dataObj = getFormData();
@@ -676,7 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (resetConfirmPopup) resetConfirmPopup.classList.add('hidden');
         });
     }
-    // Tutorial Popup
+
     const tutoPopup = document.getElementById('tuto-popup');
     const btnOpenTuto = document.getElementById('btn-open-tuto');
     const btnCloseTuto = document.getElementById('btn-close-tuto');
@@ -727,7 +698,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
-    // Init
     loadFromLocalStorage();
     if (location.hash === '#customization') {
         openCustomizationModal(false);
